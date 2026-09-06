@@ -109,12 +109,12 @@ export const apps = [
     detailTitle: 'Practice English by speaking',
     detailSubtitle: 'Say It Out — English',
     privacyPolicy: {
-      intro: 'Say It Out — English is designed to support private, focused language practice.',
+      intro: 'English Privacy Statement',
       items: [
-        ['Information we use', 'The app uses your learner profile, practice history, transcripts, scores, and imported learning materials to provide speaking practice and progress feedback.'],
-        ['Microphone and files', 'Microphone access is used only when you start a speaking exercise. Photos, PDFs, text, and audio are accessed only when you choose to import them.'],
-        ['Storage and sharing', 'Your learning profiles, progress, and imported materials are stored for use inside the app. We do not sell personal information or use your learning materials for advertising.'],
-        ['Your choices', 'You can stop microphone access in system settings and remove imported materials or profiles from the app. For privacy questions, contact GoByStep@outlook.com.']
+        ['1', 'Your profile, learning records, recordings, and imported materials are stored on your device.'],
+        ['2', 'The camera is used for scanning, the microphone is used for recording, and speech recognition is provided by Apple.'],
+        ['3', 'Words you look up may be sent to Dictionary API (api.dictionaryapi.dev). Translation uses Apple Translation.'],
+        ['4', 'This app does not require an account and does not use advertising or tracking. You can delete your data in the app.']
       ],
       updated: 'Last updated: September 5, 2026'
     },
