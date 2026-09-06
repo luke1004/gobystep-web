@@ -1,0 +1,92 @@
+</script>
+					$scope.fileNameChanged = function() {
+					    var files = document.querySelector('input[type="files"]').files;
+					    var names = "";
+					    if (files.length > 1) {
+					        for (var i = 0; i < files.length; i++) {
+					            names += files[i].name + "<br>";
+					        }
+					        jQuery("#fileNames").html(names);
+					    } else {
+					        jQuery("#fileNames").html("");
+					    }
+					}
+<p id="fileNames"></p>
+
+<div ng-controller="NewMessageController">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">
+                    <small>New Message</small>
+                </h2>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-md-9">
+                <form name="insert_form" novalidate ng-submit="save()">
+                    
+					Name:<br>
+                    <textarea cols="70%" rows="1" ng-model="iName" name="iname" placeholder="Your Name" ng-minlength=3 ng-maxlength=20
+                        required></textarea>
+                    <!--div class="error" style="color:maroon" ng-show={required:false,minlength:false,maxlength:false,pattern:false,submitted:false}-->
+                    <div class="error" style="color:maroon" ng-show="insert_form.iname.$invalid && insert_form.submitted">
+                        <small class="error" ng-show="insert_form.iname.$error.required">Your name is required.</small>
+                        <small class="error" ng-show="insert_form.iname.$error.minlength">Your name is required to be at least 3 characters</small>
+                        <small class="error" ng-show="insert_form.iname.$error.maxlength">Your name cannot be longer than 20 characters</small>
+                    </div>
+                    <br>
+                    
+					<br> Contact:
+                    <br>
+                    <textarea cols="70%" rows="1" ng-model="iContact" name="icontact" ng-minlength=10" required></textarea>
+                    <div class="error" style="color:maroon" ng-show="insert_form.icontact.$invalid && insert_form.submitted">
+                        <small class="error" ng-show="insert_form.icontact.$error.required">Contact message needed.</small>
+                        <small class="error" ng-show="insert_form.icontact.$error.minlength">Contact message must be at least 10 characters</small>
+                    </div>
+                    <br>
+                    
+					<br> Contact:
+                    <br>
+                    <textarea cols="70%" rows="1" ng-model="iGroup" name="igroup" ng-minlength=4" required></textarea>
+                    <div class="error" style="color:maroon" ng-show="insert_form.igroup.$invalid && insert_form.submitted">
+                        <small class="error" ng-show="insert_form.igroup.$error.required">Group message needed.</small>
+                        <small class="error" ng-show="insert_form.igroup.$error.minlength">Group message must be at least 4 characters</small>
+                    </div>
+                    <br>
+					
+					<br> Message:
+                    <br>
+                    <textarea cols="70%" rows="5" ng-model="iMessage" name="imessage" ng-minlength=10
+                        required></textarea>
+                    <div class="error" style="color:maroon" ng-show="insert_form.imessage.$invalid && insert_form.submitted">
+                        <small class="error" ng-show="insert_form.imessage.$error.required">Message needed.</small>
+                        <small class="error" ng-show="insert_form.imessage.$error.minlength">Message must be at least 10 characters</small>
+                    </div>
+                    <br>
+                    {{invalidtext}}
+                    <br>
+                    <p>
+                        <!--input class="btn-group-xs" type='submit' value = "OK"-->
+                        <h3 class="page-header">
+                        <small>
+                        <button type="submit" class="btn-link">Save</button>
+                        <button class="btn-link" ng-click="clear()">Clear</button>
+                        </small>
+                        </h3>
+                    </p>
+                </form>
+                <form action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
+                    <!-- <input type="file" name="1.txt"> -->
+                    <!-- <input type="submit" value="Upload"> -->
+					<input type="file" multiple="multiple" id="file" name="files" onchange="angular.element(this).scope().fileNameChanged()" />
+					
+					<!-- <input type="file" name="myFile"> -->
+					<input type="submit" value="Upload">
+                  </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

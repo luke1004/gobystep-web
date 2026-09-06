@@ -1,0 +1,50 @@
+export const apps = [
+  {
+    name: 'Say It Out',
+    title: 'Learning Sentence By Sentence',
+    subtitle: 'Learn - Say It Out',
+    platform: 'For iOS and OS',
+    image: 'SayItOut1.png',
+    icon: 'sayitout058.png',
+    description: 'No matter what language you are learning, with just an audio file, “Say it out” will automatically divide it into small sentences. So you can listen intently and imitate sentence by sentence, over and over again. It can also check what you said is correct or not sentence by sentence automatically. Its innovative learning methods, efficiency and ease of use will bring you a new and excellent language learning experience.',
+    path: '/fm',
+    detailImages: ['SayItOut9.png', 'addTrack.png', 'learning.png', 'eSayItOut.png'],
+    detailVideo: 'cx.mov',
+    overview: 'A practical language-learning assistant for turning any audio into short, repeatable speaking practice.',
+    features: ['Automatically divide audio into small sentences', 'Listen and repeat one sentence at a time', 'Compare your speaking with the original recording', 'Build a steady practice habit without changing your existing files'],
+    steps: [['Choose an audio file', 'Start with a lesson, conversation, or podcast you already enjoy.'], ['Practice sentence by sentence', 'Listen carefully, repeat, and replay the same sentence until it feels natural.'], ['Review your progress', 'Return to difficult sentences and keep improving at your own pace.']],
+    audience: 'Language learners, self-directed students, and anyone who learns best by listening and speaking.',
+    version: 'For iOS and OS'
+  },
+  {
+    name: 'eQuicker24',
+    title: "Let's get more close",
+    subtitle: 'eQuicker24 v1.0',
+    image: 'eQuicker24.jpg',
+    icon: 'eQuicker24.png',
+    description: 'A traditional family mathematical game for training mental arithmetic and quick reaction. There are 52 cards at the beginning, randomly took out 4 cards each time, the first one who achieves the number 24 exactly using only +, -, *, / get 1 point. The game ends when the card is exhausted, and the player who gets more points wins.',
+    path: '/eQuicker24',
+    detailImages: ['weq1.PNG', 'weq2.PNG', 'weq3.PNG', 'weq4.PNG', 'weq5.PNG'],
+    overview: 'A traditional family card game that turns mental arithmetic into a quick and friendly competition.',
+    features: ['Draw four cards at random', 'Use only +, -, ×, and ÷ to reach 24', 'Keep score for every successful round', 'Play together or challenge yourself to react faster'],
+    steps: [['Draw four cards', 'Take four cards from the deck and look for a possible combination.'], ['Find the answer', 'Combine the four numbers using basic arithmetic and use each card exactly once.'], ['Score the round', 'The first player to reach 24 wins the point; continue until the cards run out.']],
+    audience: 'Families, children practicing arithmetic, and players who enjoy short competitive games.',
+    version: 'Version 1.0'
+  },
+  {
+    name: 'ShowAce',
+    title: 'Memories on the table',
+    subtitle: 'ShowAce v2.0',
+    image: 'sa0.jpg',
+    icon: 'showbest.png',
+    description: 'Without doing anything. ShowAce will loop through your photos/videos one by one on full screen with time and place they were taken. You can easily highlight the best part of each photo to make it look better and more attractive. Of course, you can easily hide the photos and videos you do not want to show too. Also you can draw customized photo frames for each album and add them on top of your photos/videos to make it more special and caring.',
+    path: '/showace',
+    detailImages: ['showbest1.jpg', 'showbest2.jpg', 'showbest.png'],
+    detailVideo: 'cx.mov',
+    overview: 'A quiet photo and video presentation tool for making everyday memories easier to revisit.',
+    features: ['Loop through photos and videos automatically', 'Show the time and place captured with each memory', 'Highlight favorite parts and hide items you do not want to show', 'Add personal frames and background music without changing originals'],
+    steps: [['Choose an album', 'Select the photos and videos you want to revisit together.'], ['Make it personal', 'Adjust the order, frames, visibility, and background music to match the moment.'], ['Press play', 'Let ShowAce present the album full screen while you enjoy the story.']],
+    audience: 'Families, travelers, and anyone who wants a more personal way to share photos and videos.',
+    version: 'Version 2.0'
+  }
+];

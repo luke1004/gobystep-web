@@ -1,0 +1,38 @@
+<div ng-controller="MessageController">
+  <div class="container">
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="page-header">
+          <small>
+          <a ng-href="/newMessage">New Message </a>
+          </small>
+        </h2>
+      </div>
+    </div>
+
+    <!-- /.row -->
+    <div class="list-group packages" id=common-packages>
+      <!--Search: <input ng-model="query"> -->
+      <!--li ng-repeat="phone in phones | filter:query"-->
+      <div ng-repeat="myObj in message">
+        <div class="package list-group-item all-packages">
+
+          <div class=row>
+            <div class=col-md-3>
+              <h5 class=package-name>{{myObj.username}}</h5>
+			  <p>{{myObj.tgroup}} </p>
+              <p>{{myObj.time}} </p>
+            </div>
+            <div class="col-md-9">
+              <h4 class="text-info"> {{myObj.message}}</h4>
+              <!--h5>Subheading</h5-->
+              <p>{{myObj.reply}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+{
+    "name": "showbbs",
+    "version": "1.0.0",
+    "dependencies": {
+        "angular-cookies": "latest",
+        "bootstrap": "latest",
+        "font-awesome": "latest",
+        "animate.css": "latest",
+        "jquery-ui": "latest",
+        "angular": "latest",
+        "angular-route": "latest"
+    }
+}

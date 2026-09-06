@@ -1,0 +1,137 @@
+<!-- Page Content -->
+<div class="container">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header text-primary">
+                <small>&nbspSay It Out</small> Sentence By Sentence
+            </h2>
+        </div>
+    </div>
+
+    <!-- /.row -->
+    <!-- Project One -->
+    <div class="row">
+        <div class="col-md-6">
+            <div ng-controller="CarouselDemoCtrl">
+                <!--div id="myCarousel" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active">
+                        </li>
+                        <li data-target="#myCarousel" data-slide-to="1">
+                        </li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div ng-repeat="slide in slides">
+                            <div class="item" class="{{slide.active}}">
+                                <img class="img-responsive" ng-src="{{slide.image}}" style="margin:auto;">
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev" style="margin-bottom:20px;"><span class="glyphicon glyphicon-chevron-left"></a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next" style="margin-bottom:20px;"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+            </div-->
+
+                <div id="myCarousel" class="carousel slide sb-card0" data-ride="carousel" data-interval="5000">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active">
+                        </li>
+                        <li data-target="#myCarousel" data-slide-to="1">
+                        </li>
+                        <li data-target="#myCarousel" data-slide-to="2">
+                        </li>
+                        <li data-target="#myCarousel" data-slide-to="3">
+                        </li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="img-responsive" ng-src="../views/img/showbest1.jpg" style="margin:auto;">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" ng-src="../views/img/showbest2.jpg" style="margin:auto;">
+                        </div>
+                        <div class="item">
+                            <video class="img-responsive" autostart="true" ng-src="../views/img/showace640.mov" controls="controls" id="shVideo" style="margin:auto;">
+                                您的浏览器不支持 video 标签。
+                            </video>
+                        </div>
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <!--a class="carousel-control left" href="#myCarousel" data-slide="prev" style="margin-bottom:20px;"><span class="glyphicon glyphicon-chevron-left"></a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next" style="margin-bottom:20px;"><span class="glyphicon glyphicon-chevron-right"></span></a-->
+                </div>
+                <p>
+                    <div id="carousel-text" class="sb-card">
+                        <p>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque
+                            repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit,
+                            esse totam tempore.</p>
+                    </div>
+                    <div id="slide-content" style="display: none;">
+                        <div id="slide-content-0">
+                            <p>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque
+                                repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit,
+                                esse totam tempore.</p>
+                        </div>
+                        <div id="slide-content-1">
+                            <p>2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque
+                                repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit,
+                                esse totam tempore.</p>
+                        </div>
+                        <div id="slide-content-2">
+                            <p>3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque
+                                repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit,
+                                esse totam tempore.</p>
+                        </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!--ul class="list-inline social-links"-->
+            <!--div-->
+            <!--div class="sb-card">
+                    <div class="card-body"-->
+            <!--h3>Description:</h3>
+                <p>Without doing anything, ShowAce will loop through your photos/videos one by one on full screen with time and place they were taken. It’s very easy to hide photos/videos that you don’t want to show or to highlight a specific portion of a photo by zooming to make it warmer, more caring and appealing. Also you can draw customized photo frames and add them on top of your photos/videos to make it more special. Each album can have its own frame. Everything you do will not affect your original photos. ShowAce will only record your settings and show exactly the same in the future.Further more, you can create a playlist for this App. ShowAce’s hidden music controller allows you to tap the left of the screen at any time to pause, play, or change the background song easily.You can also share your favorite pictures on Facebook, Instagram, Twitter etc.</p>
+                </div>
+            </div-->
+
+            <div>
+                <!--div class="sb-card">
+                <div class="card-body"-->
+                <h3>Features:</h3>
+                <ul>
+                    <li>Automatically show all the pictures and videos, their shooting time and location.</li>
+                    <li>Zoom in/out on the photo being displayed, move to the point you satisfied then hit OK. ShowAce will show
+                        exactly the same in the future (landscape and portrait respectively).</li>
+                    <li>Tap bottom of the screen to show/hide picture info.</li>
+                    <li>Music control: Tap center left of the screen to play/pause. Tap upper left of the screen for previous
+                        song. Tap lower left of the screen for next song.</li>
+                    <li>Swipe left or right at any time to change the flow direction.</li>
+                    <li>Tap center of the screen or Zoom in/out to launch the settings bar.</li>
+                    Choose photos, videos from “Album” button.<br>
+                    Choose music from “Music” button.<br>
+                    Set time interval for picture/video.<br>
+                    Manage DIY digital photo frames.<br>
+                    Share to Facebook, Instagram, and Twitter etc.<br>
+                </ul>
+                <!--/div-->
+            </div>
+            <!--/ul-->
+        </div>
+
+        <div class="col-sm-6" align="right">
+            <br>
+            <br>
+            <img src="../views/img/e72.png" />
+            <p><small>Click or Scan to Download</small></p>
+        </div>
+    </div>
+    <hr>
+</div>
+<!-- /.container -->
