@@ -533,7 +533,7 @@ git init
 git add .
 git commit -m "Prepare GoByStep website"
 git branch -M main
-git remote add origin https://github.com/你的用户名/gobystep-web.git
+git remote add origin https://github.com/luke1004/gobystep-web.git
 git push -u origin main
 ~~~
 
