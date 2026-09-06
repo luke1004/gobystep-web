@@ -446,13 +446,19 @@ https://gobystep-static.pages.dev/sayitout-en
 3. 修改 frontend/src/content/apps.js
 4. 必要时修改 frontend/src/App.jsx 或 frontend/src/styles.css
 5. npm run build
-6. npm start，本地检查
+6. npm start
+本地检查
+
 7. git add .
 8. git commit -m "Describe the change"
 9. git push
 10. 等待 Cloudflare Pages 自动部署
 11. 打开公网网址检查
 ~~~
+如果要看公网版本，需要先提交并推送：
+git add frontend/src/content/apps.js public
+git commit -m "Update English privacy statement"
+git push
 
 可以记成：
 
