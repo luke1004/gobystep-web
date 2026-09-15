@@ -17,6 +17,7 @@ export const apps = [
     ],
     overview: 'A practical language-learning assistant for turning any audio into short, repeatable speaking practice.',
     features: ['Automatically divide audio into small sentences', 'Listen and repeat one sentence at a time', 'Compare your speaking with the original recording', 'Build a steady practice habit without changing your existing files'],
+    closing: ['Listen. Speak. Check your result. Try again.', 'Turn the English you understand into English you can say.'],
     steps: [['Choose an audio file', 'Start with a lesson, conversation, or podcast you already enjoy.'], ['Practice sentence by sentence', 'Listen carefully, repeat, and replay the same sentence until it feels natural.'], ['Review your progress', 'Return to difficult sentences and keep improving at your own pace.']],
     audience: 'Language learners, self-directed students, and anyone who learns best by listening and speaking.',
     version: 'For iOS and OS',
@@ -48,6 +49,7 @@ export const apps = [
     ],
     overview: 'A traditional family card game that turns mental arithmetic into a quick and friendly competition.',
     features: ['Draw four cards at random', 'Use only +, -, ×, and ÷ to reach 24', 'Keep score for every successful round', 'Play together or challenge yourself to react faster'],
+    closing: ['Listen. Speak. Check your result. Try again.', 'Turn the English you understand into English you can say.'],
     steps: [['Draw four cards', 'Take four cards from the deck and look for a possible combination.'], ['Find the answer', 'Combine the four numbers using basic arithmetic and use each card exactly once.'], ['Score the round', 'The first player to reach 24 wins the point; continue until the cards run out.']],
     audience: 'Families, children practicing arithmetic, and players who enjoy short competitive games.',
     version: 'Version 1.0',
@@ -79,6 +81,7 @@ export const apps = [
     ],
     overview: 'A quiet photo and video presentation tool for making everyday memories easier to revisit.',
     features: ['Loop through photos and videos automatically', 'Show the time and place captured with each memory', 'Highlight favorite parts and hide items you do not want to show', 'Add personal frames and background music without changing originals'],
+    closing: ['Listen. Speak. Check your result. Try again.', 'Turn the English you understand into English you can say.'],
     steps: [['Choose an album', 'Select the photos and videos you want to revisit together.'], ['Make it personal', 'Adjust the order, frames, visibility, and background music to match the moment.'], ['Press play', 'Let ShowAce present the album full screen while you enjoy the story.']],
     audience: 'Families, travelers, and anyone who wants a more personal way to share photos and videos.',
     version: 'Version 2.0',
@@ -94,15 +97,16 @@ export const apps = [
     ]
   },
   {
-    name: '英语说起来',
+    name: 'Say It Out - EN / 英语说起来',
     title: 'Practice English by speaking',
     subtitle: 'Say It Out — English',
-    image: 'sayitout-en/iphone/01-home.jpg',
-    icon: 'sayitout058.png',
-    description: '先听原声，再凭记忆说出来；App 通过语音识别和逐词匹配，给出简洁的练习反馈。',
+    image: 'sayitout-en/iphone/01-home-feature.png',
+    icon: 'sayitout-en-icon.png',
+    description: 'Say It Out - EN helps you practice with the English you actually want to learn. Choose a built-in story, scan a page, import a PDF or text file, paste in a favorite paragraph, or practice with a real human recording or a lesson shared by your teacher. Listen to one sentence, read it aloud, record yourself, and see how you did with an overall score and word-level feedback. Your best recording is saved, and the app highlights the three words to focus on next.',
     path: '/sayitout-en',
-    overview: 'A focused English speaking practice app that turns listening into confident, repeatable speech.',
-    features: ['Listen first, then speak from memory', 'Receive an overall practice score from 0 to 100', 'See word-level feedback after recording', 'Adjust the challenge from visible text to blind reading'],
+    overview: 'Listen. Speak. Check your result. Try again. Turn the English you understand into English you can say.',
+    features: ['Practice with real human recordings or teacher-shared lessons, alongside built-in stories and your own materials', 'Listen to one sentence, read it aloud, and record yourself', 'See an overall score and feedback for every word', 'Save your highest score and best recording', 'Focus on the three words the app highlights next', 'Adjust how much text stays visible as the challenge increases', 'Look up word meanings and pronunciation, and translate sentences', 'Replay your recordings and follow your progress over time'],
+    closing: ['Listen. Speak. Check your result. Try again.', 'Turn the English you understand into English you can say.'],
     steps: [['Listen first', 'Play the original or system-read sentence before starting your recording.'], ['Speak it out', 'Say the sentence from memory and let the app recognize your spoken English.'], ['Practice again', 'Use the score and word feedback to decide what to repeat next.']],
     audience: 'English learners who want a short, clear loop for listening, speaking, and remembering.',
     version: 'English version',
@@ -113,23 +117,28 @@ export const apps = [
       items: [
         ['1', 'Your profile, learning records, recordings, and imported materials are stored on your device.'],
         ['2', 'The camera is used for scanning, the microphone is used for recording, and speech recognition is provided by Apple.'],
-        ['3', 'Words you look up may be sent to Dictionary API (api.dictionaryapi.dev). Translation uses Apple Translation.'],
+        ['3', 'Words you look up may be sent to Datamuse (api.datamuse.com). Translation uses Apple Translation.'],
         ['4', 'This app does not require an account and does not use advertising or tracking. You can delete your data in the app.']
       ],
       updated: 'Last updated: September 5, 2026'
     },
     sections: [
-      { title: 'Listen, speak, and improve', items: [
-        { image: 'sayitout-en/iphone/01-home.jpg', title: 'A calm place to begin', text: 'Choose a learner profile, open a story or personal material, and start with the original sentence before speaking.' },
-        { image: 'sayitout-en/iphone/02-library.jpg', title: 'Stories and personal materials', text: 'Practice built-in stories or bring your own photo, PDF, pasted text, or audio lesson into the learning flow.' }
+      { title: 'How to use', items: [
+        { image: 'sayitout-en/iphone/01-learner-home.png', title: 'Create or choose your profile', text: 'Tap the avatar to add a new learner profile, or choose an existing profile. Then add what you want to learn.' },
+        { image: 'sayitout-en/iphone/02-import-material.png', title: 'Add your own material', text: 'Materials everywhere—bring your own, or learn with human recordings and teacher lessons.' },
+        { image: 'sayitout-en/iphone/02-library.jpg', title: 'Choose a story from the library to start learning', text: 'Open a story from the library and select the lesson you want to practice.' },
+        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Listen, read, and speak', text: 'Listen to the original sentence, read along, then say it from memory.' },
+        { image: 'sayitout-en/iphone/04-my-learning.jpg', title: 'Check your score and review', text: 'See your practice result and return to the sentences that need more work.' },
+        { image: 'sayitout-en/iphone/05-profile.jpg', title: 'Switch learner profiles', text: 'Change profiles to keep different learners’ practice and progress separate.' }
       ] },
-      { title: 'Feedback that supports memory', items: [
-        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Record and receive a practice score', text: 'The app compares the recognized transcript with the target sentence and produces an easy-to-understand score.' },
-        { image: 'sayitout-en/iphone/04-my-learning.jpg', title: 'Review what needs practice', text: 'Return to recent practice and focus on the sentences and words that still need reinforcement.' },
-        { image: 'sayitout-en/iphone/05-profile.jpg', title: 'Choose your challenge', text: 'Each learner profile can move from fully visible text to a five-star blind-reading challenge.', imageSide: 'right' }
-      ] },
-      { title: 'One idea across devices', items: [
-        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Practice wherever you are', text: 'The English version keeps the same listen–speak–check loop in a compact iPhone layout.', imageSide: 'right' }
+      { title: 'Features', items: [
+        { image: 'sayitout-en/iphone/02-library.jpg', title: 'Story library', text: 'Keep lessons together in one place and choose a story whenever you are ready to practice.' },
+        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Sentence-by-sentence or full reading', text: 'Practice one sentence at a time or listen through the full material for a broader rhythm.' },
+        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Look up and save words', text: 'Check unfamiliar words while learning and save useful vocabulary for later review.' },
+        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Recording and scoring', text: 'Record your voice and receive a clear practice score after speaking.' },
+        { image: 'sayitout-en/iphone/04-my-learning.jpg', title: 'Low-score word feedback', text: 'Find the words that need attention and practice them again with a focused next step.' },
+        { image: 'sayitout-en/iphone/04-my-learning.jpg', title: 'Learning progress', text: 'Return to your recent lessons and see how your regular practice is developing.' },
+        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Real human voices', text: 'Learn from natural recordings and hear the sentence before you try it yourself.' }
       ] }
     ]
   }
