@@ -19,4 +19,5 @@ main { min-height: calc(100vh - 110px); }
 .preview-item figcaption span { color: #777; }
 .sayitout-en-page .product-feature-image { max-height: 520px; }
 .sayitout-en-page .detail-media img, .sayitout-en-page .detail-media video { max-height: 520px; }
+.sayitout-en-page > hr:last-child { margin-top: 32px; margin-bottom: 64px; }
 @media (max-width: 767px) { .legacy-product-image { display: block; width: 100%; margin: 14px 0; } }

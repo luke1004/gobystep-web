@@ -98,20 +98,20 @@ export const apps = [
   },
   {
     name: 'Say It Out - EN / 英语说起来',
-    title: 'Practice English by speaking',
-    subtitle: 'Say It Out — English',
+    title: 'Practice English by Speaking',
+    subtitle: 'Say It Out - English',
     image: 'sayitout-en/iphone/01-home-feature.png',
     icon: 'sayitout-en-icon.png',
     description: 'Say It Out - EN helps you practice with the English you actually want to learn. Choose a built-in story, scan a page, import a PDF or text file, paste in a favorite paragraph, or practice with a real human recording or a lesson shared by your teacher. Listen to one sentence, read it aloud, record yourself, and see how you did with an overall score and word-level feedback. Your best recording is saved, and the app highlights the three words to focus on next.',
     path: '/sayitout-en',
     overview: 'Listen. Speak. Check your result. Try again. Turn the English you understand into English you can say.',
-    features: ['Practice with real human recordings or teacher-shared lessons, alongside built-in stories and your own materials', 'Listen to one sentence, read it aloud, and record yourself', 'See an overall score and feedback for every word', 'Save your highest score and best recording', 'Focus on the three words the app highlights next', 'Adjust how much text stays visible as the challenge increases', 'Look up word meanings and pronunciation, and translate sentences', 'Replay your recordings and follow your progress over time'],
+    features: ['Practice with real human recordings or teacher-shared lessons, alongside built-in stories and your own materials.', 'Listen to one sentence, read it aloud, and record yourself.', 'See an overall score and feedback for every word.', 'Save your highest score and best recording.', 'Focus on the three words the app highlights next.', 'Adjust how much text stays visible as the challenge increases.', 'Look up word meanings and pronunciation, and translate sentences.', 'Replay your recordings and follow your progress over time.'],
     closing: ['Listen. Speak. Check your result. Try again.', 'Turn the English you understand into English you can say.'],
     steps: [['Listen first', 'Play the original or system-read sentence before starting your recording.'], ['Speak it out', 'Say the sentence from memory and let the app recognize your spoken English.'], ['Practice again', 'Use the score and word feedback to decide what to repeat next.']],
     audience: 'English learners who want a short, clear loop for listening, speaking, and remembering.',
     version: 'English version',
-    detailTitle: 'Practice English by speaking',
-    detailSubtitle: 'Say It Out — English',
+    detailTitle: 'Practice English by Speaking',
+    detailSubtitle: 'Say It Out - English',
     privacyPolicy: {
       intro: 'English Privacy Statement',
       items: [
@@ -125,20 +125,15 @@ export const apps = [
     sections: [
       { title: 'How to use', items: [
         { image: 'sayitout-en/iphone/01-learner-home.png', title: 'Create or choose your profile', text: 'Tap the avatar to add a new learner profile, or choose an existing profile. Then add what you want to learn.' },
-        { image: 'sayitout-en/iphone/02-import-material.png', title: 'Add your own material', text: 'Materials everywhere—bring your own, or learn with human recordings and teacher lessons.' },
+        { image: 'sayitout-en/iphone/02-import-material.png', title: 'Add your own material', text: 'Bring your own material, or practice with human recordings and teacher lessons.', imageSide: 'right' },
         { image: 'sayitout-en/iphone/02-library.jpg', title: 'Choose a story from the library to start learning', text: 'Open a story from the library and select the lesson you want to practice.' },
-        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Listen, read, and speak', text: 'Listen to the original sentence, read along, then say it from memory.' },
-        { image: 'sayitout-en/iphone/04-my-learning.jpg', title: 'Check your score and review', text: 'See your practice result and return to the sentences that need more work.' },
-        { image: 'sayitout-en/iphone/05-profile.jpg', title: 'Switch learner profiles', text: 'Change profiles to keep different learners’ practice and progress separate.' }
       ] },
       { title: 'Features', items: [
-        { image: 'sayitout-en/iphone/02-library.jpg', title: 'Story library', text: 'Keep lessons together in one place and choose a story whenever you are ready to practice.' },
-        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Sentence-by-sentence or full reading', text: 'Practice one sentence at a time or listen through the full material for a broader rhythm.' },
-        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Look up and save words', text: 'Check unfamiliar words while learning and save useful vocabulary for later review.' },
-        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Recording and scoring', text: 'Record your voice and receive a clear practice score after speaking.' },
-        { image: 'sayitout-en/iphone/04-my-learning.jpg', title: 'Low-score word feedback', text: 'Find the words that need attention and practice them again with a focused next step.' },
-        { image: 'sayitout-en/iphone/04-my-learning.jpg', title: 'Learning progress', text: 'Return to your recent lessons and see how your regular practice is developing.' },
-        { image: 'sayitout-en/iphone/03-practice.jpg', title: 'Real human voices', text: 'Learn from natural recordings and hear the sentence before you try it yourself.' }
+        { image: 'sayitout-en/iphone/03-practice-result.png', title: 'Practice', text: 'Choose a sentence → Listen to the original audio → Read → Record yourself speaking → Check your score → Practice the target words.' },
+        { image: 'sayitout-en/iphone/04-practice-score.png', title: 'Speaking score & feedback', text: 'Review word-by-word feedback, replay your recordings and best score, and practice again to improve.', imageSide: 'right' },
+        { image: 'sayitout-en/iphone/05-lesson-result.png', title: 'Lesson results', text: 'Review your scores, play your recordings, and improve sentence by sentence.' },
+        { image: 'sayitout-en/iphone/06-learned-sentences.png', title: 'All learned sentences', text: 'Review all learned sentences, replay recordings, and keep improving.', imageSide: 'right' },
+        { image: 'sayitout-en/iphone/07-listening-challenge.png', title: 'Listening challenge', text: 'Five levels take you from full support to blind reading. The higher the level, the less text and help you see.' },
       ] }
     ]
   }
