@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>网站内容编辑</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1a3341; background: #f6f7f4; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header { position: sticky; top: 0; z-index: 2; background: #fff; border-bottom: 1px solid #d9e1df; padding: 12px max(18px, calc((100vw - 1080px)/2)); display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    h1 { font-size: 20px; margin: 0; }
+    h2 { font-size: 22px; margin: 0 0 8px; }
+    h3 { font-size: 17px; margin: 0; }
+    p { color: #506571; line-height: 1.5; }
+    main { max-width: 1080px; margin: 24px auto 70px; padding: 0 18px; }
+    section, .item { background: #fff; border: 1px solid #d9e1df; border-radius: 14px; padding: 22px; margin: 0 0 20px; }
+    .item { background: #fbfcfa; margin-top: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .full { grid-column: 1 / -1; }
+    label { display: block; font-weight: 600; margin: 14px 0 0; }
+    input[type="text"], textarea, select { display: block; width: 100%; font: inherit; color: #173141; background: #fff; border: 1px solid #b9c9c8; border-radius: 8px; padding: 10px 11px; margin-top: 6px; }
+    textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
+    input[type="file"] { display: block; margin-top: 10px; width: 100%; }
+    .media-preview { min-height: 120px; display: flex; justify-content: center; align-items: center; background: #f0f5f3; border: 1px dashed #bdd0cd; border-radius: 10px; padding: 12px; margin-top: 10px; }
+    .media-preview img, .media-preview video { display: block; max-width: 100%; max-height: 250px; object-fit: contain; }
+    .path { color: #647b81; font-size: 12px; overflow-wrap: anywhere; margin-top: 7px; }
+    button, .button { border: 1px solid #288e95; border-radius: 8px; background: #fff; color: #16767f; padding: 9px 13px; font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; white-space: nowrap; }
+    button.primary { background: #208d96; color: #fff; }
+    button.danger { color: #a94339; border-color: #d5b0ab; }
+    button:disabled { opacity: .55; cursor: wait; }
+    .actions, .section-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .actions { margin-top: 15px; }
+    #status { font-size: 14px; color: #395b62; min-height: 22px; }
+    .hint { font-size: 14px; margin-top: 0; }
+    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } header { flex-wrap: wrap; } section, .item { padding: 16px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>网站内容编辑</h1>
+    <label>选择 App <select id="app-select" aria-label="选择 App"></select></label>
+    <div class="actions"><a class="button" href="/" target="_blank" rel="noopener">查看首页</a><a class="button" id="detail-link" href="/sayitout-en" target="_blank" rel="noopener">查看详情页</a><button class="primary" id="save" type="button">保存修改</button></div>
+  </header>
+  <main>
+    <p class="hint">先选图、改文字，再点“保存修改”。首页与详情页的介绍可分别编辑；保存后刷新预览页即可看到结果。</p>
+    <div id="status" role="status"></div>
+    <div id="editor"></div>
+  </main>
+  <script>
+    let content;
+    let allContent;
+    const root = document.getElementById('editor');
+    const status = document.getElementById('status');
+    const save = document.getElementById('save');
+    const appSelect = document.getElementById('app-select');
+    const detailLink = document.getElementById('detail-link');
+    const node = (tag, className, text) => { const el = document.createElement(tag); if (className) el.className = className; if (text !== undefined) el.textContent = text; return el; };
+    const message = (text) => { status.textContent = text; };
+
+    function field(parent, labelText, value, update, multiline = false) {
+      const label = node('label', '', labelText);
+      const control = node(multiline ? 'textarea' : 'input');
+      if (!multiline) control.type = 'text';
+      control.value = value || '';
+      control.addEventListener('input', () => update(control.value));
+      label.append(control);
+      parent.append(label);
+      return control;
+    }
+
+    function listField(parent, labelText, value, update) {
+      const control = field(parent, labelText, (value || []).join('\n'), (text) => update(text.split('\n').map((line) => line.trim()).filter(Boolean)), true);
+      control.placeholder = '每行一项';
+    }
+
+    function mediaField(parent, labelText, current, update, allowVideo = false) {
+      const label = node('label', '', labelText);
+      const preview = node('div', 'media-preview');
+      const pathText = node('div', 'path');
+      const chooser = node('input');
+      chooser.type = 'file';
+      chooser.accept = allowVideo ? '.png,.jpg,.jpeg,.webp,.gif,.mp4,.mov,.webm' : '.png,.jpg,.jpeg,.webp,.gif';
+      const show = (name) => {
+        preview.replaceChildren();
+        const video = /\.(mp4|mov|webm)$/i.test(name);
+        const visual = node(video ? 'video' : 'img');
+        visual.src = '/views/img/' + name.split('/').map(encodeURIComponent).join('/');
+        if (video) visual.controls = true;
+        preview.append(visual);
+        pathText.textContent = name;
+      };
+      show(current);
+      chooser.addEventListener('change', async () => {
+        if (!chooser.files[0]) return;
+        const body = new FormData();
+        body.append('media', chooser.files[0]);
+        chooser.disabled = true;
+        message('正在上传图片或视频…');
+        try {
+          const response = await fetch('/api/site-media', { method: 'POST', body });
+          const result = await response.json();
+          if (!response.ok) throw new Error(result.error || '上传失败');
+          update(result.image);
+          show(result.image);
+          message('上传完成。点“保存修改”后，页面会使用这张图片或视频。');
+        } catch (error) { message(error.message); }
+        finally { chooser.disabled = false; }
+      });
+      label.append(preview, chooser, pathText);
+      parent.append(label);
+    }
+
+    function section(title, hint) {
+      const el = node('section');
+      el.append(node('h2', '', title), node('p', 'hint', hint));
+      root.append(el);
+      return el;
+    }
+
+    function renderItem(parent, group, item, itemIndex) {
+      const card = node('div', 'item');
+      const head = node('div', 'section-head');
+      head.append(node('h3', '', '功能 ' + (itemIndex + 1)));
+      const remove = node('button', 'danger', '删除这项');
+      remove.type = 'button';
+      remove.onclick = () => { group.items.splice(itemIndex, 1); render(); };
+      head.append(remove);
+      card.append(head);
+      const grid = node('div', 'grid');
+      const mediaBox = node('div');
+      mediaField(mediaBox, '图片或视频', item.image, (value) => { item.image = value; item.type = /\.(mp4|mov|webm)$/i.test(value) ? 'video' : undefined; }, true);
+      grid.append(mediaBox);
+      const copy = node('div');
+      field(copy, '功能标题', item.title, (value) => item.title = value);
+      field(copy, '文字说明', item.text, (value) => item.text = value, true);
+      const side = node('label', '', '桌面版图片位置');
+      const select = node('select');
+      [['left', '图片在左'], ['right', '图片在右']].forEach(([value, text]) => { const option = node('option', '', text); option.value = value; select.append(option); });
+      select.value = item.imageSide === 'right' ? 'right' : 'left';
+      select.onchange = () => item.imageSide = select.value === 'right' ? 'right' : undefined;
+      side.append(select);
+      copy.append(side);
+      grid.append(copy);
+      card.append(grid);
+      parent.append(card);
+    }
+
+    function render() {
+      root.replaceChildren();
+      detailLink.href = content.path;
+      const home = section('首页 · ' + content.name, '对应首页左边一张图、右边标题和主要功能。');
+      const homeGrid = node('div', 'grid');
+      const homeMedia = node('div');
+      mediaField(homeMedia, '首页左侧图片', content.image, (value) => content.image = value);
+      homeGrid.append(homeMedia);
+      const homeCopy = node('div');
+      field(homeCopy, '首页标题', content.title, (value) => content.title = value);
+      field(homeCopy, '首页副标题', content.subtitle, (value) => content.subtitle = value);
+      field(homeCopy, '首页介绍', content.homeDescription, (value) => content.homeDescription = value, true);
+      listField(homeCopy, '首页主要功能（每行一条）', content.homeFeatures, (value) => content.homeFeatures = value);
+      homeGrid.append(homeCopy);
+      home.append(homeGrid);
+
+      const intro = section('详情页 · 主要介绍', '页面顶部的文字和图片；与首页内容分别保存。');
+      const introGrid = node('div', 'grid');
+      const introCopy = node('div');
+      field(introCopy, '详情页标题', content.detailTitle || content.title, (value) => content.detailTitle = value);
+      field(introCopy, '详情页副标题', content.detailSubtitle || content.subtitle, (value) => content.detailSubtitle = value);
+      field(introCopy, '一句话介绍', content.overview, (value) => content.overview = value, true);
+      field(introCopy, '详细介绍', content.description, (value) => content.description = value, true);
+      listField(introCopy, '主要功能（每行一条）', content.features, (value) => content.features = value);
+      introGrid.append(introCopy);
+      const introMedia = node('div');
+      mediaField(introMedia, '详情页顶部图片', content.detailImage, (value) => content.detailImage = value);
+      introGrid.append(introMedia);
+      intro.append(introGrid);
+
+      const details = section('详情页 · 逐项说明', '每项功能配一张图片或一个视频，再加标题和说明。');
+      content.sections.forEach((group, groupIndex) => {
+        const card = node('div', 'item');
+        const head = node('div', 'section-head');
+        head.append(node('h3', '', '分组 ' + (groupIndex + 1)));
+        const remove = node('button', 'danger', '删除分组');
+        remove.type = 'button';
+        remove.onclick = () => { content.sections.splice(groupIndex, 1); render(); };
+        head.append(remove);
+        card.append(head);
+        field(card, '分组标题', group.title, (value) => group.title = value);
+        group.items.forEach((item, itemIndex) => renderItem(card, group, item, itemIndex));
+        const add = node('button', '', '＋ 添加功能');
+        add.type = 'button';
+        add.onclick = () => { group.items.push({ image: content.detailImage, title: '新功能', text: '请填写说明' }); render(); };
+        card.append(add);
+        details.append(card);
+      });
+      const addGroup = node('button', '', '＋ 添加分组');
+      addGroup.type = 'button';
+      addGroup.onclick = () => { content.sections.push({ title: '新分组', items: [] }); render(); };
+      details.append(addGroup);
+
+      const ending = section('详情页 · 末尾信息', '保持原页面的末尾结构。');
+      field(ending, '适合谁使用', content.audience, (value) => content.audience = value, true);
+      field(ending, '版本说明', content.version, (value) => content.version = value);
+    }
+
+    save.addEventListener('click', async () => {
+      save.disabled = true;
+      message('正在保存…');
+      try {
+        const response = await fetch('/api/site-content', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(content) });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || '保存失败');
+        message('已保存。刷新首页或详情页即可查看；每次保存前的内容也会自动备份。');
+      } catch (error) { message(error.message); }
+      finally { save.disabled = false; }
+    });
+
+    fetch('/api/site-content').then((response) => { if (!response.ok) throw new Error('无法加载网站内容'); return response.json(); }).then((data) => {
+      if (!Array.isArray(data)) throw new Error('网站内容格式无效');
+      allContent = data;
+      allContent.forEach((app) => {
+        app.detailTitle ||= app.title;
+        app.detailSubtitle ||= app.subtitle;
+        const option = node('option', '', app.name);
+        option.value = app.path;
+        appSelect.append(option);
+      });
+      appSelect.value = '/sayitout-en';
+      content = allContent.find((app) => app.path === appSelect.value) || allContent[0];
+      render();
+    }).catch((error) => message(error.message));
+    appSelect.addEventListener('change', () => {
+      content = allContent.find((app) => app.path === appSelect.value);
+      message('切换 App 后，请在离开前保存当前修改。');
+      render();
+    });
+  </script>
+</body>
+</html>

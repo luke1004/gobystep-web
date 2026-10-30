@@ -48,6 +48,7 @@ app.get('/uploads/:filename', (req, res) => {
     });
 });
 
+require('./site-editor')(app);
 app.use(express.static(path.join(__dirname, 'public')));
 require('./app/routes')(app); // configure our routes
 
