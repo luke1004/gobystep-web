@@ -5,6 +5,7 @@ const multer = require('multer');
 
 const root = __dirname;
 const contentFile = path.join(root, 'site-content', 'apps.json');
+const publishedContentFile = path.join(root, 'public', 'site-content', 'apps.json');
 const backupDir = path.join(root, '.backups', 'site-content');
 const mediaDir = path.join(root, 'public', 'views', 'img', 'custom');
 const mediaTypes = new Map([
@@ -130,6 +131,8 @@ module.exports = function registerSiteEditor(app) {
       const temp = `${contentFile}.tmp`;
       fs.writeFileSync(temp, `${JSON.stringify(all, null, 2)}\n`);
       fs.renameSync(temp, contentFile);
+      fs.mkdirSync(path.dirname(publishedContentFile), { recursive: true });
+      fs.copyFileSync(contentFile, publishedContentFile);
       res.json({ ok: true });
     } catch (error) {
       res.status(400).json({ error: error.message });
