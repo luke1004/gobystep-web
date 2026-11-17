@@ -101,6 +101,8 @@ export const apps = [
     title: 'Practice English by Speaking',
     subtitle: 'Say It Out - English',
     image: 'sayitout-en/iphone/01-home-feature.png',
+    detailImage: 'sayitout-en/iphone/V1-iPhone.mp4',
+    detailPoster: 'sayitout-en/iphone/01-home-feature.png',
     icon: 'sayitout-en-icon.png',
     description: 'Say It Out - EN helps you practice with the English you actually want to learn. Choose a built-in story, scan a page, import a PDF or text file, paste in a favorite paragraph, or practice with a real human recording or a lesson shared by your teacher. Listen to one sentence, read it aloud, record yourself, and see how you did with an overall score and word-level feedback. Your best recording is saved, and the app highlights the three words to focus on next.',
     path: '/sayitout-en',

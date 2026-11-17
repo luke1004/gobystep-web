@@ -48,7 +48,7 @@ function media(value) {
 
 function picture(value) {
   const name = media(value);
-  if (!/\.(png|jpe?g|webp|gif)$/i.test(name)) throw new Error('首页和顶部展示图需要使用图片');
+  if (!/\.(png|jpe?g|webp|gif)$/i.test(name)) throw new Error('首页展示图需要使用图片');
   return name;
 }
 
@@ -82,7 +82,7 @@ function normalize(input, current) {
     homeFeatures: lines(input.homeFeatures),
     detailTitle: text(input.detailTitle, 140),
     detailSubtitle: text(input.detailSubtitle, 140),
-    detailImage: picture(input.detailImage),
+    detailImage: media(input.detailImage),
     overview: text(input.overview),
     description: text(input.description),
     features: lines(input.features),

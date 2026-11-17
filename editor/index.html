@@ -162,7 +162,7 @@
       homeGrid.append(homeCopy);
       home.append(homeGrid);
 
-      const intro = section('详情页 · 主要介绍', '页面顶部的文字和图片；与首页内容分别保存。');
+      const intro = section('详情页 · 主要介绍', '页面顶部的文字和图片或视频；与首页内容分别保存。');
       const introGrid = node('div', 'grid');
       const introCopy = node('div');
       field(introCopy, '详情页标题', content.detailTitle || content.title, (value) => content.detailTitle = value);
@@ -172,7 +172,7 @@
       listField(introCopy, '主要功能（每行一条）', content.features, (value) => content.features = value);
       introGrid.append(introCopy);
       const introMedia = node('div');
-      mediaField(introMedia, '详情页顶部图片', content.detailImage, (value) => content.detailImage = value);
+      mediaField(introMedia, '详情页顶部图片或视频', content.detailImage, (value) => content.detailImage = value, true);
       introGrid.append(introMedia);
       intro.append(introGrid);
 
@@ -190,7 +190,7 @@
         group.items.forEach((item, itemIndex) => renderItem(card, group, item, itemIndex));
         const add = node('button', '', '＋ 添加功能');
         add.type = 'button';
-        add.onclick = () => { group.items.push({ image: content.detailImage, title: '新功能', text: '请填写说明' }); render(); };
+        add.onclick = () => { group.items.push({ image: content.detailImage, title: '新功能', text: '请填写说明', ...(/\.(mp4|mov|webm)$/i.test(content.detailImage) ? { type: 'video' } : {}) }); render(); };
         card.append(add);
         details.append(card);
       });
