@@ -115,12 +115,13 @@ export const apps = [
     privacyPolicy: {
       intro: 'English Privacy Statement',
       items: [
-        ['1', 'Your profile, learning records, recordings, and imported materials are stored on your device.'],
-        ['2', 'The camera is used for scanning, the microphone is used for recording, and speech recognition is provided by Apple.'],
-        ['3', 'Words you look up may be sent to Datamuse (api.datamuse.com). Translation uses Apple Translation.'],
-        ['4', 'This app does not require an account and does not use advertising or tracking. You can delete your data in the app.']
+        ['1', 'Your profile, learning records, recordings, imported materials, and local dictionary data are stored on your device.'],
+        ['2', 'The camera is used only for scanning documents on your device. The microphone is used to record your practice. Apple’s speech recognition framework is used to recognize speech, and Apple may process speech audio according to Apple’s own services and privacy terms.'],
+        ['3', 'Sentence translation uses Apple Translation when you request it. The app does not operate its own translation or dictionary server.'],
+        ['4', 'This app does not require an account and does not use advertising or tracking. You can delete your profile, learning records, recordings, and imported materials within the app.'],
+        ['5', 'The app does not provide user accounts, cloud sync, public posting, community sharing, or a developer-operated content server.']
       ],
-      updated: 'Last updated: September 5, 2026'
+      updated: 'Last updated: November 17, 2026'
     },
     sections: [
       { title: 'How to use', items: [
