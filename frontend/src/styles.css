@@ -18,6 +18,15 @@ main { min-height: calc(100vh - 110px); }
 .preview-item figcaption { padding: 8px 0 0; line-height: 1.5; }
 .preview-item figcaption span { color: #777; }
 .sayitout-en-page .product-feature-image { max-height: 520px; }
+.hero-video { position: relative; }
+.hero-video video { display: block; }
+.hero-video-hidden { position: absolute; inset: 0; height: 100%; opacity: 0; pointer-events: none; }
+.hero-video-cover { position: relative; display: block; width: 100%; padding: 0; border: 0; background: #fff; cursor: pointer; }
+.hero-video-cover img { display: block; }
+.hero-video-play { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: rgba(22, 43, 58, .82); box-shadow: 0 4px 16px rgba(0, 0, 0, .2); transform: translate(-50%, -50%); }
+.hero-video-play::before { content: ''; display: block; width: 0; height: 0; margin-left: 5px; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 19px solid #fff; }
+.hero-video-cover:hover .hero-video-play { background: #218e96; }
+.hero-video-cover:focus-visible { outline: 3px solid #218e96; outline-offset: 4px; }
 .sayitout-en-page .detail-media img, .sayitout-en-page .detail-media video { max-height: 520px; }
 .sayitout-en-page > hr:last-child { margin-top: 32px; margin-bottom: 64px; }
 @media (max-width: 767px) { .legacy-product-image { display: block; width: 100%; margin: 14px 0; } }
